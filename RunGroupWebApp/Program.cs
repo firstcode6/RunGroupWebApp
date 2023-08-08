@@ -27,10 +27,18 @@ namespace RunGroupWebApp
 
             builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
+            //builder.Services.AddDbContext<AppDbContext>(options =>
+            //{
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            //});
+
+            var dbHost = Environment.GetEnvironmentVariable("DB_HOST"); //"localhost";
+            var dbName = Environment.GetEnvironmentVariable("DB_NAME"); //"RunGroups";
+            var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD"); //"data#123";
+            var connectionString = $"Data Source={dbHost};Initial Catalog={dbName}; User ID=sa;Password={dbPassword}";
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+
+
             builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();
@@ -44,7 +52,7 @@ namespace RunGroupWebApp
             if (args.Length == 1 && args[0].ToLower() == "seeddata")
             {
                 await Seed.SeedUsersAndRolesAsync(app);
-                //Seed.SeedData(app);
+                Seed.SeedData(app);
             }
             /*End2***************************************************/
 
