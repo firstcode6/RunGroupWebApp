@@ -9,6 +9,16 @@
     <DockerServiceName>rungroupwebapp</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Description\asp.net(MVC).drawio" />
+    <None Include="Description\asp.net(MVC).png" />
+    <None Include="Description\ASP.NET.docx" />
+    <None Include="Description\asp.net.drawio" />
+    <None Include="Description\final_db.PNG" />
+    <None Include="Description\hierarchy_html.drawio" />
+    <None Include="Description\hierarchy_html.png" />
+    <None Include="Description\initial_db.PNG" />
+    <None Include="Description\MVC.png" />
+    <None Include="readme.md" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
