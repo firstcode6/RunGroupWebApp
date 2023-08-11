@@ -4,19 +4,9 @@
 ![Website](Description/.gif)
 
 ## Statring
-
 * Clone the project:  `git clone https://github.com/firstcode6/RunGroupWebApp.git`
 
-* In `flora-stories-editor` folder, run command `docker-compose up -d --build` in the terminal.
-
-
 ## Information
-All uploaded images keep in `stories_flora/media`.
-
-Tha same data must be in settings of django in `stories_flora/stories_flora/settings.py`.
-
-Dockerfile run the initial command file `stories_flora/start.sh`, which keeps several important django commands:
-- `python manage.py migrate` creates tables and relationships between them from `stories_flora/main_app/models.py` in the database.
 
 ## Users
 The types of roles are defined in `RunGroupWebApp\Data\UserRoles.cs`. These are two types: admin and user.
