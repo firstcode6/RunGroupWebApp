@@ -12,6 +12,7 @@ services:
     environment:
          - ACCEPT_EULA=Y
          - SA_PASSWORD=data#123
+         - MSSQL_PID=Express
     networks:
         - networkdriverbridge
 
@@ -29,5 +30,9 @@ services:
         - DB_HOST=rungroupdb
         - DB_NAME=RunGroups
         - DB_SA_PASSWORD=data#123
+    #volumes:
+    #  - db-data:/var/opt/mssql
     networks:
         - networkdriverbridge
+#volumes:
+#  db-data:

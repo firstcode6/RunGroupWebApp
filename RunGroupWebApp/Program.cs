@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using RunGroupWebApp.Data;
 using RunGroupWebApp.Helpers;
 using RunGroupWebApp.Interfaces;
@@ -18,7 +19,7 @@ namespace RunGroupWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            /*Begin1**************************************************/
+
             builder.Services.AddScoped<IClubRepository, ClubRepository>();
             builder.Services.AddScoped<IRaceRepository, RaceRepository>();
             builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
@@ -29,13 +30,15 @@ namespace RunGroupWebApp
 
             //builder.Services.AddDbContext<AppDbContext>(options =>
             //{
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            //    // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("OwnConnection"));
+
             //});
 
             var dbHost = Environment.GetEnvironmentVariable("DB_HOST"); //"localhost";
             var dbName = Environment.GetEnvironmentVariable("DB_NAME"); //"RunGroups";
             var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD"); //"data#123";
-            var connectionString = $"Data Source={dbHost};Initial Catalog={dbName}; User ID=sa;Password={dbPassword}";
+            var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};Persist Security Info=True; User ID=sa;Password={dbPassword}; TrustServerCertificate=True;";
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 
@@ -43,18 +46,15 @@ namespace RunGroupWebApp
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
-            /*End1**************************************************/
-
+           
             var app = builder.Build();
 
-            /*Begin2**************************************************/
             // In Developer PowerShell: dotnet run seeddata
             if (args.Length == 1 && args[0].ToLower() == "seeddata")
             {
                 await Seed.SeedUsersAndRolesAsync(app);
-                Seed.SeedData(app);
+               // Seed.SeedData(app);
             }
-            /*End2***************************************************/
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

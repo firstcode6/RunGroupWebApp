@@ -22,6 +22,6 @@ RUN dotnet publish "RunGroupWebApp.csproj" -c Release -o /app/publish /p:UseAppH
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RunGroupWebApp.dll"]
+ENTRYPOINT ["dotnet", "RunGroupWebApp.dll", "seeddata"]
 
 #RUN dotnet seeddata
