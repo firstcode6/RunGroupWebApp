@@ -4,17 +4,30 @@
 ![Website](Description/.gif)
 
 ## Statring
-* Clone the project:  `git clone https://github.com/firstcode6/RunGroupWebApp.git`
-
-## Information
+1. Clone the project:   **`git clone https://github.com/firstcode6/RunGroupWebApp.git`** in the terminal.
+2. In `RunGroupWebApp\RunGroupWebApp` folder, run command: **`docker-compose up`** in the terminal.
 
 ## Users
-The types of roles are defined in `RunGroupWebApp\Data\UserRoles.cs`. These are two types: admin and user.
-- Admin: Only this user has the access to `Dashboatd`. This user is only able to change the status of users. Admin can modify the data. There are no any restrictions; 
-- User: This user can modify the data;
-The method `SeedUsersAndRolesAsync` provides initial data of roles in file `RunGroupWebApp\Data\Seed.cs`. We call it through `RunGroupWebApp\Program.cs`.
+There are three types of users: guest (unauthorized), user and admin.
 
-The authorisation is required. It is not possible to operate with website without authorisation . 
+**Guest features:**
+- guest is unauthorized user.
+- can visit website and see the Running clubs near their city (by IP). 
+- can acquainted with list of `Club` and `Races`, see their details.
+- can `Login` and `Regester`.
+- cannot edit, create and delete `Club` and `Races`.
+- do not access to `Dashboatd` and list of other `Users/runners`.
+
+These are two types of roles: admin and user. They are authorized. The types of roles are defined in `RunGroupWebApp\Data\UserRoles.cs`. \
+**User features: the same opportunities as Guest, but difference:**
+- has access to `Dashboatd`, where can create `Club` and `Races` and edit their profile.
+- has access to list of other `Users/runners`, see their details.
+- cannot edit and delete `Club` and `Races`.
+
+**Admin features: the same opportunities as User, but difference:**
+- can edit and delete `Club` and `Races`.
+ 
+The method `SeedUsersAndRolesAsync` provides initial data of roles in file `RunGroupWebApp\Data\Seed.cs`. We call it through `RunGroupWebApp\Program.cs`.
 
 Users: 
 - Admin: Email: *test@gmail.com*, password: *Coding@1234?*;
@@ -24,9 +37,9 @@ Users:
 ## Database
 **The Microsoft SQL Server** is used as DataBase Management System (DBMS).\
 The file `docker-compose.yml` keeps the information about the database namely the host, name and password of the database:
-- DB_HOST=rungroupdb
+- DB_HOST=mssql2022
 - DB_NAME=RunGroups
-- DB_SA_PASSWORD=data#123
+- DB_SA_PASSWORD=A&VeryComplex123Password
 
 The method `SeedData` provides initial data in file `RunGroupWebApp\Data\Seed.cs`. We call it through `RunGroupWebApp\Program.cs`.
 
@@ -45,6 +58,7 @@ Cloudinary is utilized for saving uploaded images. The settings are set in `RunG
 ## IP Geo Location
 IPinfo (https://ipinfo.io/) is an industry-leading IP data provider that offers IP geolocation, ASN, IP to company, VPN detection, IP ranges, hosted domains, and other data types.
 IPinfo provides a free token for getting location based on IP. The settings are set in `RunGroupWebApp\Controllers\HomeController.cs` and `RunGroupWebApp\Helpers\IPInfo.cs`.
+Based on user's IP the app knows user's city and searchs the clubs with this city. In case if there are clubs the user will be able to see them.
 
 ## The hierarchy of htmls
 ![The hierarchy of htmls](Description/hierarchy_html.png)

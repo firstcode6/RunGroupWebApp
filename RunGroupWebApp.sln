@@ -5,9 +5,26 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroupWebApp", "RunGroupWebApp\RunGroupWebApp.csproj", "{AB596306-DA4E-4699-9E78-A9FBC1F76AEC}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5A04FEB8-337A-4FD6-A43D-08E086C49F3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroupWebApp.Tests", "RunGroupWebApp.Tests\RunGroupWebApp.Tests.csproj", "{8E60EF9F-4821-4553-802C-86DAB62A19DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroupWebApp.Tests", "..\RunGroupWebApp.Tests\RunGroupWebApp.Tests.csproj", "{7A6DE167-3081-493E-8C97-73DA58F7D6AF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9656C23C-2625-4ADC-AF34-C7D7AC30EF2E}"
+	ProjectSection(SolutionItems) = preProject
+		Description\asp.net(MVC).drawio = Description\asp.net(MVC).drawio
+		Description\asp.net(MVC).png = Description\asp.net(MVC).png
+		Description\ASP.NET.docx = Description\ASP.NET.docx
+		Description\asp.net.drawio = Description\asp.net.drawio
+		Description\final_db.PNG = Description\final_db.PNG
+		Description\hierarchy_html.drawio = Description\hierarchy_html.drawio
+		Description\hierarchy_html.png = Description\hierarchy_html.png
+		Description\initial_database.PNG = Description\initial_database.PNG
+		Description\initial_db.PNG = Description\initial_db.PNG
+		Description\MVC.png = Description\MVC.png
+		readme.md = readme.md
+		Description\test.html = Description\test.html
+		Description\~$SP.NET.docx = Description\~$SP.NET.docx
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiEntityFrameworkDockerSqlServer", "..\WebApiEntityFrameworkDockerSqlServer\WebApiEntityFrameworkDockerSqlServer.csproj", "{DD9D8301-4B48-466E-B395-5254B7922FF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +36,14 @@ Global
 		{AB596306-DA4E-4699-9E78-A9FBC1F76AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB596306-DA4E-4699-9E78-A9FBC1F76AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB596306-DA4E-4699-9E78-A9FBC1F76AEC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A04FEB8-337A-4FD6-A43D-08E086C49F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A04FEB8-337A-4FD6-A43D-08E086C49F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A04FEB8-337A-4FD6-A43D-08E086C49F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A04FEB8-337A-4FD6-A43D-08E086C49F3D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A6DE167-3081-493E-8C97-73DA58F7D6AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A6DE167-3081-493E-8C97-73DA58F7D6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A6DE167-3081-493E-8C97-73DA58F7D6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A6DE167-3081-493E-8C97-73DA58F7D6AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E60EF9F-4821-4553-802C-86DAB62A19DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E60EF9F-4821-4553-802C-86DAB62A19DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E60EF9F-4821-4553-802C-86DAB62A19DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E60EF9F-4821-4553-802C-86DAB62A19DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9D8301-4B48-466E-B395-5254B7922FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9D8301-4B48-466E-B395-5254B7922FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9D8301-4B48-466E-B395-5254B7922FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9D8301-4B48-466E-B395-5254B7922FF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

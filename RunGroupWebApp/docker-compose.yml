@@ -1,0 +1,23 @@
+﻿version: '3.9'
+
+services:
+    my_web_app:
+        build: .  # build the Docker image 
+        container_name: run_group_web
+        ports: 
+            - "8001:80"  # It maps port 80 inside the container to port 8001 on your computer.
+        environment:
+            - DB_HOST=mssql2022
+            - DB_NAME=RunGroups
+            - DB_SA_PASSWORD=A&VeryComplex123Password
+    my_db:
+        image: "mcr.microsoft.com/mssql/server:2022-latest"
+        container_name: mssql2022
+        ports: # not actually needed, because the two services are on the same network
+             - "8002:1433" # computer:inside
+        environment:
+            - ACCEPT_EULA=y
+            - SA_PASSWORD=A&VeryComplex123Password
+
+
+  

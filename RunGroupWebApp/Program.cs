@@ -28,17 +28,19 @@ namespace RunGroupWebApp
 
             builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
+            // local runs
             //builder.Services.AddDbContext<AppDbContext>(options =>
             //{
             //    // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("OwnConnection"));
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DockerConnection"));
 
             //});
 
+            //docker runs
             var dbHost = Environment.GetEnvironmentVariable("DB_HOST"); //"localhost";
             var dbName = Environment.GetEnvironmentVariable("DB_NAME"); //"RunGroups";
             var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD"); //"data#123";
-            var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};Persist Security Info=True; User ID=sa;Password={dbPassword}; TrustServerCertificate=True;";
+            var connectionString = $"Server={dbHost};Database={dbName}; User ID=sa;Password={dbPassword}; TrustServerCertificate=True";
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 
@@ -49,11 +51,22 @@ namespace RunGroupWebApp
            
             var app = builder.Build();
 
-            // In Developer PowerShell: dotnet run seeddata
-            if (args.Length == 1 && args[0].ToLower() == "seeddata")
+            //// In Developer PowerShell: dotnet run seeddata
+            //if (args.Length == 1 && args[0].ToLower() == "seeddata")
+            //{
+            //    Seed.SeedData(app);
+            //    await Seed.SeedUsersAndRolesAsync(app);
+            //}
+
+            // seeding data and users
+            using (var scope = app.Services.CreateScope())
             {
-                await Seed.SeedUsersAndRolesAsync(app);
-               // Seed.SeedData(app);
+                var salesContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                salesContext.Database.EnsureCreated();
+                // salesContext.SeedUsersAndRolesAsyncNew();
+
+                Seeder.SeedDataNew(salesContext);
+                await Seeder.SeedUsersAndRolesAsyncNew(scope);
             }
 
             // Configure the HTTP request pipeline.

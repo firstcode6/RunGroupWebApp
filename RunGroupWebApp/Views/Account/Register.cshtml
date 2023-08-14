@@ -15,10 +15,11 @@
         {
             <div class="col-md-12 alert alert-danger">
                 <ul>
-                    @foreach (var errorMessage in (List<string>)TempData["Error"])
+                   @* @foreach (var errorMessage in (List<string>)TempData["Error"])
                     {
                         <li>@errorMessage</li>
-                    }
+                    }*@
+                    <li>@TempData["Error"]</li>
                 </ul>
             </div>
         }
