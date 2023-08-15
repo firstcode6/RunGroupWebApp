@@ -1,7 +1,7 @@
 
 **Key technologies:** *ASP.NET Core NET 7, C#, MVC pattern, Microsoft SQL Server, Entity Framework, Identity Framework (authentification and autorization), Cloudinary, IPinfo, Bootstrap.*
 ## Website for group runs in your city
-![Website](Description/Website_group_runs.gif)
+![Website](Description/Website_GroupRuns.gif)
 
 ## Statring
 1. Clone the project:   **`git clone https://github.com/firstcode6/RunGroupWebApp.git`** in the terminal.
