@@ -1,5 +1,6 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using RunGroupWebApp.Helpers;
 using RunGroupWebApp.Interfaces;
@@ -19,6 +20,19 @@ namespace RunGroupWebApp.Services
                 );
             _cloudinary = new Cloudinary(acc);
         }
+
+        //public (int width, int height) GetImageDimensions(IFormFile file)
+        //{
+        //    using (var image = Image.FromStream(file.OpenReadStream()))
+        //    {
+        //        int width = image.Width;
+        //        int height = image.Height;
+        //        return (width, height);
+        //    }
+        //}
+  
+  
+
         public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
         {
             var uploadResult = new ImageUploadResult();
@@ -28,7 +42,7 @@ namespace RunGroupWebApp.Services
                 var uploadParams = new ImageUploadParams
                 {
                     File = new FileDescription(file.FileName, stream),
-                    Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face")
+                    Transformation = new Transformation().Height(400).Width(600).Crop("fill").Gravity("face")
                 };
                 uploadResult = await _cloudinary.UploadAsync(uploadParams);
             }

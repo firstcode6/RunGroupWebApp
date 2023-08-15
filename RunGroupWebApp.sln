@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroupWebApp", "RunGroupW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroupWebApp.Tests", "RunGroupWebApp.Tests\RunGroupWebApp.Tests.csproj", "{8E60EF9F-4821-4553-802C-86DAB62A19DD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9656C23C-2625-4ADC-AF34-C7D7AC30EF2E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Description", "Description", "{9656C23C-2625-4ADC-AF34-C7D7AC30EF2E}"
 	ProjectSection(SolutionItems) = preProject
 		Description\asp.net(MVC).drawio = Description\asp.net(MVC).drawio
 		Description\asp.net(MVC).png = Description\asp.net(MVC).png
