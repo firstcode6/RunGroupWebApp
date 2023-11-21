@@ -1,5 +1,10 @@
 
 **Key technologies:** *ASP.NET Core NET 7, C#, MVC pattern, Microsoft SQL Server, Entity Framework, Identity Framework (authentification and autorization), Cloudinary, IPinfo, Bootstrap.*
+
+## Publication
+This website was published on a free hosting (https://freeasphosting.net/)
+And it is avaliable at https://firstcode.bsite.net/
+
 ## Website for group runs in your city
 ![Website](Description/Website_GroupRuns.gif)
 

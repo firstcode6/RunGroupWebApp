@@ -28,20 +28,20 @@ namespace RunGroupWebApp
 
             builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
-            //// local runs
-            //builder.Services.AddDbContext<AppDbContext>(options =>
-            //{
-            //    // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
+            // local runs
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("WebConnection2016"));
 
-            //});
+            });
 
-            //docker runs
-            var dbHost = Environment.GetEnvironmentVariable("DB_HOST"); //"localhost";
-            var dbName = Environment.GetEnvironmentVariable("DB_NAME"); //"RunGroups";
-            var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD"); //"data#123";
-            var connectionString = $"Server={dbHost};Database={dbName}; User ID=sa;Password={dbPassword}; TrustServerCertificate=True";
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+            ////docker runs
+            //var dbHost = Environment.GetEnvironmentVariable("DB_HOST"); //"localhost";
+            //var dbName = Environment.GetEnvironmentVariable("DB_NAME"); //"RunGroups";
+            //var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD"); //"data#123";
+            //var connectionString = $"Server={dbHost};Database={dbName}; User ID=sa;Password={dbPassword}; TrustServerCertificate=True";
+            //builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 
             builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
